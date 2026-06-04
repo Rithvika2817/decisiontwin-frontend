@@ -1,12 +1,57 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import KPICard from "../components/dashboard/KPICard";
+import ScenarioList from "../components/scenario/ScenarioList";
 
 function Dashboard() {
+  
 
-  const data =
-    JSON.parse(
-      sessionStorage.getItem("csvData")
-    ) || [];
+  const uploadedData =
+  JSON.parse(
+    sessionStorage.getItem(
+      "csvData"
+    )
+  ) || [];
+
+const data =
+
+uploadedData.length > 0
+
+? uploadedData
+
+: [
+
+  {
+    month:"Jan",
+    revenue:1200
+  },
+
+  {
+    month:"Feb",
+    revenue:1800
+  },
+
+  {
+    month:"Mar",
+    revenue:1500
+  },
+
+  {
+    month:"Apr",
+    revenue:2500
+  },
+
+  {
+    month:"May",
+    revenue:2200
+  },
+
+  {
+    month:"Jun",
+    revenue:3000
+  }
+
+];
 
   const totalRevenue =
     data.reduce(
@@ -22,7 +67,8 @@ function Dashboard() {
       0
     );
 
-  const totalRows = data.length;
+  const totalRows =
+  uploadedData.length;
 
   // Dynamic chart logic
 
@@ -81,40 +127,22 @@ function Dashboard() {
 
   useEffect(() => {
 
-    const clearData = () => {
+  sessionStorage.removeItem(
+    "csvData"
+  );
 
-      sessionStorage.removeItem(
-        "csvData"
-      );
-
-    };
-
-    window.addEventListener(
-      "beforeunload",
-      clearData
-    );
-
-    return () => {
-
-      window.removeEventListener(
-        "beforeunload",
-        clearData
-      );
-
-    };
-
-  }, []);
+}, []);
 
 
   return (
 
-    <div className="min-h-screen bg-[#050816] text-white p-10">
+    <div className="min-h-screen bg-[#050816] text-white p-4 md:p-10">
 
       <div className="flex items-center justify-between mb-10">
 
         <div>
 
-          <h1 className="text-5xl font-bold">
+          <h1 className="text-3xl md:text-5xl font-bold">
             Analytics Dashboard
           </h1>
 
@@ -138,52 +166,50 @@ function Dashboard() {
 
       <div className="grid gap-6 md:grid-cols-4 mb-10">
 
-        <div className="rounded-3xl bg-white/5 p-6">
-
-          <p>Revenue</p>
-
-          <h2 className="text-4xl font-bold">
-
-            {totalRevenue > 0
-              ? `$${totalRevenue}`
-              : "$2.4M"}
-
-          </h2>
-
-        </div>
+        <KPICard
+  title="Revenue"
+  value={
+    totalRevenue > 0
+    ? `$${totalRevenue}`
+    : "$2.4M"
+  }
+/>
 
 
-        <div className="rounded-3xl bg-white/5 p-6">
-
-          <p>Risk Level</p>
-
-          <h2 className="text-4xl text-orange-400">
-            Medium
-          </h2>
-
-        </div>
+       <KPICard
+  title="Risk Level"
+  value="Medium"
+  valueColor="text-orange-400"
+/>
 
 
-        <div className="rounded-3xl bg-white/5 p-6">
-
-          <p>Confidence</p>
-
-          <h2 className="text-4xl text-green-400">
-            85%
-          </h2>
-
-        </div>
+        <KPICard
+  title="Confidence"
+  value="85%"
+  valueColor="text-green-400"
+/>
 
 
-        <div className="rounded-3xl bg-white/5 p-6">
+        <div
+  className="
+    rounded-3xl
+    bg-white/5
+    p-6
+    transition-all
+    duration-300
+    hover:-translate-y-2
+    hover:bg-white/10
+    hover:shadow-xl
+  "
+>
 
-          <p>Rows</p>
+  <p>Rows</p>
 
-          <h2 className="text-4xl">
-            {totalRows}
-          </h2>
+  <h2 className="text-4xl">
+    {totalRows}
+  </h2>
 
-        </div>
+</div>
 
       </div>
 
@@ -192,13 +218,13 @@ function Dashboard() {
 
       <div className="grid gap-8 md:grid-cols-2">
 
-        <div className="rounded-3xl bg-white/5 p-8">
+         <div className="rounded-3xl bg-white/5 p-4 md:p-8">
 
           <h2 className="text-2xl font-bold mb-6">
             Revenue Trend
           </h2>
 
-          <div className="flex items-end justify-center gap-4 h-[220px]">
+          <div className="flex items-end justify-center gap-2 overflow-x-auto h-[220px]">
 
             {chartData.length > 0 ? (
 
@@ -283,6 +309,12 @@ function Dashboard() {
         </div>
 
       </div>
+      <div className="mt-10">
+
+        <ScenarioList />
+
+      </div>
+
 
     </div>
 

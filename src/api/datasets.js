@@ -1,0 +1,22 @@
+import api from "./client";
+
+export const uploadDataset =
+async (formData) => {
+
+  const response =
+    await api.post(
+      "/upload/",
+      formData,
+      {
+        headers: {
+          "Content-Type":
+          "multipart/form-data"
+        }
+      }
+    );
+
+  return response.data;
+
+};
+
+  

@@ -5,6 +5,9 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import UploadPage from "./pages/UploadPage";
+import SimulatePage from "./pages/SimulatePage";
+import BaselinePage from "./pages/BaselinePage";
+import ChatPage from "./pages/ChatPage";
 
 function App() {
   return (
@@ -16,6 +19,11 @@ function App() {
           path="/"
           element={<LandingPage />}
         />
+
+        <Route
+  path="/chat"
+  element={<ChatPage />}
+/>
 
         <Route
           path="/login"
@@ -33,8 +41,18 @@ function App() {
         />
 
         <Route
+          path="/simulate"
+          element={<SimulatePage />}
+        />
+
+        <Route
           path="/upload"
           element={<UploadPage />}
+        />
+        
+        <Route
+          path="/baseline"
+          element={<BaselinePage />}
         />
 
       </Routes>
