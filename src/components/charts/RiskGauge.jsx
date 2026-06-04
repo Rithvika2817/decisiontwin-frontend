@@ -54,9 +54,10 @@ function RiskGauge({
         />
 
         <RadialBar
-          dataKey="value"
-          cornerRadius={4}
-        />
+  dataKey="value"
+  cornerRadius={4}
+  isAnimationActive={true}
+/>
 
       </RadialBarChart>
 
@@ -67,15 +68,13 @@ function RiskGauge({
         }}
       >
 
-        {score}
+        {score}%
 
       </h2>
 
-      <p className="text-gray-400">
-
-        Risk Score
-
-      </p>
+      <p className="text-gray-400 text-sm mt-1">
+  Risk Score
+</p>
 
     </div>
 

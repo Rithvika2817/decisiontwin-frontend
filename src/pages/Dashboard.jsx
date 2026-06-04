@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import KPICard from "../components/dashboard/KPICard";
 import ScenarioList from "../components/scenario/ScenarioList";
-
+import ComparisonTable from "../components/dashboard/ComparisonTable";
 function Dashboard() {
   
 
@@ -312,8 +312,11 @@ uploadedData.length > 0
       <div className="mt-10">
 
         <ScenarioList />
-
-      </div>
+        </div>
+            <div className="mt-10">
+  <ComparisonTable />
+</div>
+      
 
 
     </div>
