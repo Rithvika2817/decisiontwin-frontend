@@ -1,16 +1,73 @@
-# React + Vite
+#  DecisionTwin
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+DecisionTwin is an AI-powered business decision simulation platform that helps organizations evaluate business scenarios using analytics, machine learning, and AI-generated insights.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* CSV Dataset Upload & Preview
+* Baseline Analytics Dashboard
+* Revenue Trend Visualization
+* Business Simulation Center
+* AI Copilot Chat Interface
+* Scenario Saving & Comparison
+* Responsive Design
+* Interactive Charts & KPIs
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Frontend
 
-## Expanding the ESLint configuration
+* React 18
+* Vite
+* Tailwind CSS
+* React Router
+* Recharts
+* Framer Motion
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Backend (Planned)
+
+* FastAPI
+* PostgreSQL
+* Redis
+
+### AI & ML
+
+* Simulation Engine
+* Risk Scoring Module
+* AI Copilot
+
+## Project Structure
+
+```text
+src/
+├── pages/
+├── components/
+├── api/
+├── charts/
+├── dashboard/
+└── scenario/
+```
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+Open:
+
+```text
+http://localhost:5173
+```
+
+## Current Status
+
+* Frontend Development (Weeks 1–7) Completed
+* Responsive Design Implemented
+* GitHub Repository Configured
+* Backend Integration Pending
+
+## Developer
+
+WD-2 Frontend Engineer: Rithvika
